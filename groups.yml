@@ -1,0 +1,40 @@
+rhel_dev:
+    hostfilter: 'facts.osfamily = RedHat and last_report > "6 hours ago"'
+rhel_test:
+    hostfilter: 'facts.osfamily = RedHat and last_report > "6 hours ago" and environment = testing'
+rhel:
+    hostfilter: 'facts.osfamily = RedHat and last_report > "6 hours ago"'
+rhel5:
+    hostfilter: 'facts.lsbmajdistrelease = 5 and facts.osfamily = RedHat and last_report > "6 hours ago"'
+rhel6:
+    hostfilter: 'facts.lsbmajdistrelease = 6 and facts.osfamily = RedHat and last_report > "6 hours ago"'
+vmware:
+    hostfilter: 'facts.virtual = vmware and last_report > "6 hours ago"'
+solaris:
+    hostfilter: 'facts.osfamily = Solaris and last_report > "6 hours ago"'
+    vars: 
+        ansible_python_interpreter: /opt/csw/bin/python
+solaris_test:
+    hostfilter: 'facts.osfamily = Solaris and last_report > "6 hours ago" and environment = testing'
+    vars: 
+        ansible_python_interpreter: /opt/csw/bin/python
+solaris_dev:
+    hostfilter: 'facts.osfamily = Solaris and last_report > "6 hours ago" and environment = development'
+    vars: 
+        ansible_python_interpreter: /opt/csw/bin/python
+solaris10:
+    hostfilter: 'facts.operatingsystemrelease = 5.10 and facts.osfamily = Solaris and last_report > "6 hours ago"'
+    vars: 
+        ansible_python_interpreter: /opt/csw/bin/python
+solaris9:
+    hostfilter: 'facts.operatingsystemrelease = 5.9 and facts.osfamily = Solaris and last_report > "6 hours ago"'
+    vars: 
+        ansible_python_interpreter: /opt/csw/bin/python
+zones:
+    hostfilter: 'facts.virtual = zone and last_report > "6 hours ago"'
+    vars: 
+        ansible_python_interpreter: /opt/csw/bin/python
+globalzones:
+    hostfilter: 'facts.is_virtual = false and facts.operatingsystemrelease = 5.10 and facts.operatingsystem = Solaris and last_report > "6 hours ago"'
+    vars: 
+        ansible_python_interpreter: /opt/csw/bin/python

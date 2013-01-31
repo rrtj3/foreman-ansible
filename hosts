@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+
+# ToDo:
+# * read in children groups from the yaml file as well.
+
+import requests
+import sys
+import json
+import yaml
+
+username = 'user'
+password = 'password'
+foreman_url = "https://your.forman.server.com/hosts"
+
+# Read in the yaml groups file
+f = open('groups.yml')
+groups = yaml.safe_load(f)
+f.close()
+
+# Create a new http session with the following auth details and disabling ssl verification.
+s = requests.Session()
+s.auth = (username, password)
+s.verify = False
+
+# To test and see a url
+#print s.url
+
+def get_hosts(hostfilter):
+	payload = {'search': hostfilter + ' ', 'format': 'json', }
+	r = s.get(foreman_url, params=payload)
+	return r.json()
+
+if len(sys.argv) == 2 and (sys.argv[1] == '--list'):
+	
+	# Create an empty dict to hold the results
+	data = {}
+
+	# Search for each of the group/filters
+	for groupname, groupinfo in groups.iteritems():
+		hosts = get_hosts(groupinfo['hostfilter'])
+		data[groupname] = {'hosts': hosts}
+		if "vars" in groupinfo:
+			data[groupname].update({'vars': groupinfo['vars']})
+
+	print json.dumps(data, indent=2)
+
+	sys.exit(0)
+
+elif len(sys.argv) == 3 and (sys.argv[1] == '--host'):
+
+	hostname = sys.argv[2]
+	payload = {'format': 'json'}
+	r = s.get(foreman_url + "/" +  hostname + "/" + "facts", params=payload)
+	facts = r.json()
+	print json.dumps(facts[hostname], indent=2)
+        
+	sys.exit(0)
+
+else:
+	print "usage: --list  ..OR.. --host <hostname>"
+	sys.exit(1)
