@@ -1,7 +1,7 @@
 foreman-ansible
 ===============
 
-A Ansible ENC (external node classifier) to get, group and classify nodes based on the Puppet facts in The Foreman.
+An Ansible ENC (external node classifier) to get, group and classify nodes based on the Puppet facts in The Foreman.
 
 This project is for you if you use Foreman (http://theforeman.org/) and Puppet (https://puppetlabs.com) to handle your configuration management (and possibly provisioning) and you want to make use of the the Puppet facts in Foreman to drive the excellent config management/deployment/orchestration tool Ansible (http://ansible.cc/).
 * How it works:
