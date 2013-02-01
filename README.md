@@ -27,7 +27,7 @@ How to get it to work
 
         chmod +x hosts
 
-   - Edit 'hosts' and change the url variable to point to your foreman instance, and input a valid username and password)
+   - Edit 'hosts' and change the url variable to point to your foreman instance, and input a valid username and password
    - Edit 'groups.yml' and change any of the groupnames and search queries to suit your needs
    - Test it out:
 

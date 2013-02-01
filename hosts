@@ -10,7 +10,7 @@ import yaml
 
 username = 'user'
 password = 'password'
-foreman_url = "https://your.forman.server.com/hosts"
+foreman_url = "https://your.foreman.server.com/hosts"
 
 # Read in the yaml groups file
 f = open('groups.yml')
