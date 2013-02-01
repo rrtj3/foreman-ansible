@@ -12,8 +12,8 @@ The Foreman provides an excellent api which allows you get lists of nodes based 
 
 In foreman-ansible we handle the grouping of nodes in a simple groups.yml YAML file. To group your nodes in another way, simply add another stanza in the groups.yml for the grouping you'd like. I've included a sample groups.yml file.
 
-How to get it to work
-=====================
+How you use it
+==============
 
    - Install the requests python library (http://docs.python-requests.org/en/latest/)
 
