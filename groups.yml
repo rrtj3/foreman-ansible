@@ -1,5 +1,5 @@
 rhel_dev:
-    hostfilter: 'facts.osfamily = RedHat and last_report > "6 hours ago"'
+    hostfilter: 'facts.osfamily = RedHat and last_report > "6 hours ago" and environment = development'
 rhel_test:
     hostfilter: 'facts.osfamily = RedHat and last_report > "6 hours ago" and environment = testing'
 rhel:
